@@ -1,0 +1,39 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace methodoverriding
+{
+    public class Loadparent
+    {
+        public virtual void show()
+        {
+            Console.WriteLine("parent show");
+        }
+        public void Test()
+        {
+            Console.WriteLine("parent test");
+        }
+    }
+    class LoadChild: Loadparent
+    { 
+        public override void show()
+        {
+            Console.WriteLine("child show");
+        }
+        public void Test()
+        {
+           Console.WriteLine("child test");
+        }
+        static void Main(string[] args)
+        {
+            Loadparent p=new LoadChild();
+            p.show();
+            p.Test();
+
+            
+        }
+    }
+}

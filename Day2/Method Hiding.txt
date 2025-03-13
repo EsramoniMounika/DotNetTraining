@@ -1,0 +1,32 @@
+using System;
+
+class BaseClass
+{
+    public void ShowMessage()
+    {
+        Console.WriteLine("Message from Base Class");
+    }
+}
+
+class DerivedClass : BaseClass
+{
+    // Method hiding using 'new' keyword
+    public new void ShowMessage()
+    {
+        Console.WriteLine("Message from Derived Class");
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+        BaseClass obj1 = new BaseClass();
+        obj1.ShowMessage();   
+
+        DerivedClass obj2 = new DerivedClass();
+        obj2.ShowMessage();  
+        BaseClass obj3 = new DerivedClass();
+        obj3.ShowMessage();      
+     }
+}
