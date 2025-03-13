@@ -1,0 +1,39 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace inheritance
+{
+    public class class1
+    {
+        public void Test1()
+        {
+            Console.WriteLine("Method 1");
+        }
+        public void Test2()
+        {
+            Console.WriteLine("Method 2");
+        }
+        class class2:class1
+        {
+            public void Test3()
+            {
+                Console.WriteLine("Method 3");
+            }
+
+
+            static void Main(string[] args)
+            {
+                class2 c = new class2();
+                c.Test1();
+                c.Test2();
+                c.Test3();
+                
+
+            }
+        }
+
+    }
+}

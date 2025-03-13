@@ -1,0 +1,43 @@
+
+using System;
+namespace AbstarctExample
+{
+    abstract class Parent
+    {
+        public void Add(int x, int y)
+        {
+            Console.WriteLine(x + y);
+        }
+        public void Sub(int x, int y)
+        {
+            Console.WriteLine(x - y);
+        }
+        public abstract void Mul(int x, int y);
+        public abstract void Div(int x, int y);
+
+
+    }
+    class Child : Parent
+    {
+        public override void Mul(int x, int y)
+        {
+            Console.WriteLine(x * y);
+        }
+        public override void Div(int x, int y)
+        {
+            Console.WriteLine(x / y);
+        }
+       
+        static void Main()
+        {
+
+            Parent p = new Child();
+            //p.remainder(10, 3);
+            p.Add(10, 30);
+            p.Sub(10, 30);
+            p.Mul(10, 30);
+            p.Div(10, 30);
+        }
+    }
+}
+
