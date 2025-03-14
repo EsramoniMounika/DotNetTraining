@@ -1,0 +1,39 @@
+using System;
+
+class StringArrayMethodsExample
+{
+    static void Main()
+    {
+        string[] fruits = { "Banana", "Apple", "Cherry", "Mango", "Orange" };
+
+        // Length - Get total elements
+        Console.WriteLine("Array Length: " + fruits.Length);
+
+        // Sort - Sort the array in ascending alphabetical order
+        Array.Sort(fruits);
+        Console.WriteLine("Sorted Array: " + string.Join(", ", fruits));
+
+        // Reverse - Reverse the sorted array
+        Array.Reverse(fruits);
+        Console.WriteLine("Reversed Array: " + string.Join(", ", fruits));
+
+        // IndexOf - Find index of element "Cherry"
+        int index = Array.IndexOf(fruits, "Cherry");
+        Console.WriteLine("Index of 'Cherry': " + index);
+
+        //  Resize - Increase array size
+        Array.Resize(ref fruits, 7);
+        fruits[5] = "Pineapple";
+        fruits[6] = "Grapes";
+        Console.WriteLine("Resized Array: " + string.Join(", ", fruits));
+
+        // Clear - Reset first two elements to default (null for string)
+        Array.Clear(fruits, 0, 2);
+        Console.WriteLine("After Clear: " + string.Join(", ", fruits));
+
+        //  Copy - Copy elements into a new array
+        string[] copiedArray = new string[fruits.Length];
+        Array.Copy(fruits, copiedArray, fruits.Length);
+        Console.WriteLine("Copied Array: " + string.Join(", ", copiedArray));
+    }
+}

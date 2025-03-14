@@ -1,0 +1,41 @@
+using System;
+
+namespace exceptionhandling
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            try
+            {
+                Console.WriteLine("enter the first number");
+                int x = int.Parse(Console.ReadLine());
+                Console.WriteLine("enter the second number");
+                int y = int.Parse(Console.ReadLine());
+                int z = x / y;
+                Console.WriteLine("the result is :" + z);
+
+            }
+            catch (DivideByZeroException ex1)
+            {
+                Console.WriteLine(ex1.Message);
+            }
+            catch (FormatException ex2)
+            {
+                Console.WriteLine(ex2.Message);
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                Console.WriteLine("End of the program");
+
+            }
+            
+            
+
+        }
+    }
+}
