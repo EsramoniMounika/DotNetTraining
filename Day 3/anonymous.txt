@@ -1,0 +1,16 @@
+using System;
+public delegate double AreaDelegate(double radius);
+
+public class Program
+{
+    public static void Main(string[] Args)
+    {
+        Program p = new Program();
+        AreaDelegate ar = delegate (double radius)
+        {
+            return Math.PI * radius * radius;
+        };
+        double r = ar.Invoke(5);
+        Console.WriteLine(r);
+    }
+}

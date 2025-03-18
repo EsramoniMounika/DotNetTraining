@@ -1,0 +1,23 @@
+using System;
+
+using System.Threading.Tasks;
+
+namespace circlearea
+{
+    public class Circle
+    {
+        public static double GetArea(double radius)
+        {
+            return Math.PI * radius*radius;
+        }
+        public static void Main()
+        {
+            double radius = 345;
+            double Area=GetArea(radius);
+            Console.WriteLine(Area);
+            
+
+
+        }
+    }
+}

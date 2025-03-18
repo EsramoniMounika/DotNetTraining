@@ -1,0 +1,46 @@
+Using Sysytem;
+namespace builtindelagates
+{
+    public delegate double Addnumsdelegate(double i, double j, double k);
+    public delegate double Adddelegate(double i, double j, double k);
+    public delegate bool Namedelegate(string str);
+
+    internal class Program
+    {
+        public static Action<double, int, int> Add { get; private set; }
+
+        public static double Addnums(int i, float j, double k)
+        {
+            return i + j + k;
+        }
+        public static void Add1(int i, int j, int k)
+        {
+            Console.WriteLine(i + j + k);
+        }
+        public bool checklength(string str)
+        {
+            return str.Length > 5;
+            /*if(str.Length>5)
+                return true;
+            else return false;
+            */
+        }
+        static void Main(string[] args)
+        {
+
+
+            Func<int, float, double, double> d = Addnums;
+
+            double r = d.Invoke(10, 20.3f, 3093);
+            Console.WriteLine(r);
+
+            Action<double, int, int> d1 = Add;
+            d1.Invoke(100, 20, 30);
+            Console.WriteLine(d1);
+            Program p = new Program();
+            Predicate<string> s = p.checklength;
+
+            Console.WriteLine(s);
+        }
+    }
+}
