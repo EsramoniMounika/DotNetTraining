@@ -1,0 +1,77 @@
+using System;
+
+class House
+{
+    public int Walls { get; set; }
+    public int Doors { get; set; }
+    public int Windows { get; set; }
+    public bool IsGarageAvailable { get; set; }
+    public bool IsGardenAvailable { get; set; }
+}
+
+class HouseBuilder
+{
+    public House House;
+
+    public HouseBuilder()
+    {
+        House = new House();
+    }
+
+    public HouseBuilder BuildWalls(int walls)
+    {
+        House.Walls = walls;
+        return this;
+    }
+
+    public HouseBuilder BuildDoors(int doors)
+    {
+        House.Doors = doors;
+        return this;
+    }
+
+    public HouseBuilder BuildWindows(int windows)
+    {
+        House.Windows = windows;
+        return this;
+    }
+
+    public HouseBuilder BuildGarage(bool garage)
+    {
+        House.IsGarageAvailable = garage;
+        return this;
+    }
+
+    public HouseBuilder BuildGarden(bool garden)
+    {
+        House.IsGardenAvailable = garden;
+        return this;
+    }
+
+    // Method to return the built house
+    public House GetHouse()
+    {
+        return House;
+    }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        House house = new HouseBuilder()
+            .BuildWindows(4)
+            .BuildDoors(4)
+            .BuildWalls(4)
+            .BuildGarage(true)
+            .BuildGarden(true)
+            .GetHouse();
+
+        // Print the house properties
+        Console.WriteLine($"Walls: {house.Walls}");
+        Console.WriteLine($"Doors: {house.Doors}");
+        Console.WriteLine($"Windows: {house.Windows}");
+        Console.WriteLine($"Garage Available: {house.IsGarageAvailable}");
+        Console.WriteLine($"Garden Available: {house.IsGardenAvailable}");
+    }
+}

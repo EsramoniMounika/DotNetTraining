@@ -1,0 +1,61 @@
+using System;
+public interface IAnimal
+{
+    void speak();
+}
+class Dog : IAnimal
+{
+    public void speak()
+    {
+        Console.WriteLine("woof");
+    }
+}
+class Cat : IAnimal
+{
+    public void speak()
+    {
+        Console.WriteLine("meow");
+    }
+}
+class Bird : IAnimal
+{
+    public void speak()
+    {
+        Console.WriteLine("chirp");
+    }
+}
+public static class AnimalFactory
+{
+    public static IAnimal createAnimal(string animalType)
+    {
+        switch (animalType)
+        {
+            case "Dog":
+                return new Dog();
+            case "Cat":
+                return new Cat();
+            case "Bird":
+                return new Bird();
+            default:
+                return null;
+
+        }
+    }
+}
+class Program
+{
+    static void Main()
+    {
+        Console.WriteLine("enter the type of the animal");
+        string animalType = Console.ReadLine();
+        var animal = AnimalFactory.createAnimal(animalType);
+        if (animal != null)
+        {
+            animal.speak();
+        }
+        else
+        {
+            Console.WriteLine("Invalid animal Type");
+        }
+    }
+}

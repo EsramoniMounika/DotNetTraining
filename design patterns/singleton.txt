@@ -1,0 +1,40 @@
+
+// Online C# Editor for free
+// Write, Edit and Run your C# code using C# Online Compiler
+
+using System;
+
+public sealed class Singleton
+{
+    private static int c = 0;
+    private static Singleton instance = null;
+    public static Singleton GetInstance
+    {
+        get
+        {
+            if (instance == null)
+            {
+                instance = new Singleton();
+            }
+            return instance;
+        }
+    }
+    private Singleton()
+    {
+        c++;
+        Console.WriteLine(c);
+    }
+    public void PrintDetails(string message)
+    {
+        Console.WriteLine(message);
+    }
+    public static void Main(string[] Args)
+    {
+        Singleton s1 = Singleton.GetInstance;
+        s1.PrintDetails("Singleton is created");
+        Singleton s2 = Singleton.GetInstance;
+        s2.PrintDetails("Singleton is again created");
+
+    }
+
+}
