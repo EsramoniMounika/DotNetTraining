@@ -1,0 +1,28 @@
+using System;
+public class RefandOut
+{
+    public static void SwapValues(ref int value1,ref int value2)
+    {
+        int temp=value1;
+        value1=value2;
+        value2=temp;
+    }
+    public static void Incremant(out int value)
+    {
+        value=10;
+        value++;
+    }
+    public static void Main(string[] Args)
+    {
+        int x=10;
+        int y=5;
+        int z=10;
+        
+        Console.WriteLine($"Before swapping x={x},y={y}");
+        SwapValues(ref x,ref y);
+        Console.WriteLine($"After swapping x={x},y={y}");
+        Incremant(out z);
+        Console.WriteLine(z);
+        
+    }
+}

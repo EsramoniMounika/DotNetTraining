@@ -1,0 +1,70 @@
+using System;
+using System.IO;
+
+namespace InnerExceptionDemo
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            try
+            {
+                ProcessFile("data.txt");
+            }
+            catch (ApplicationException ex)
+            {
+                Console.WriteLine($"Exception: {ex.Message}");
+
+                if (ex.InnerException != null)
+                {
+                    Console.WriteLine($"Inner Exception: {ex.InnerException.Message}");
+                }
+            }
+        }
+
+        static void ProcessFile(string fileName)
+        {
+            try
+            {
+                
+                string content = ReadFileContent(fileName);
+
+                
+                int number = ParseNumber(content);
+
+                Console.WriteLine($"Number from file: {number}");
+            }
+            catch (Exception ex)
+            {
+                
+                throw new ApplicationException("An error occurred while processing the file.", ex);
+            }
+        }
+
+        static string ReadFileContent(string fileName)
+        {
+            try
+            {
+                
+                return File.ReadAllText(fileName);
+            }
+            catch (IOException ex)
+            {
+                throw new Exception("Failed to read the file.", ex);
+            }
+        }
+
+        static int ParseNumber(string content)
+        {
+            try
+            {
+                
+                return int.Parse(content);
+            }
+            catch (FormatException ex)
+            {
+                throw new Exception("Error parsing the content to a number.", ex);
+            }
+        }
+    }
+}

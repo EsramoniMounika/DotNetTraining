@@ -1,0 +1,47 @@
+using System;
+
+namespace StackTraceDemo
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            try
+            {
+                // Start the application flow
+                Method1();
+            }
+            catch (Exception ex)
+            {
+                // Print exception details
+                Console.WriteLine($"Exception: {ex.Message}");
+                
+                // Print stack trace to see the sequence of method calls
+                Console.WriteLine("\nStack Trace:");
+                Console.WriteLine(ex.StackTrace);
+            }
+        }
+
+        static void Method1()
+        {
+            Console.WriteLine("Inside Method1...");
+            Method2();
+        }
+
+        static void Method2()
+        {
+            Console.WriteLine("Inside Method2...");
+            Method3();
+        }
+
+        static void Method3()
+        {
+            Console.WriteLine("Inside Method3...");
+            
+            // Simulate a division by zero exception
+            int result = 10 / int.Parse("0");
+            
+            Console.WriteLine($"Result: {result}");
+        }
+    }
+}

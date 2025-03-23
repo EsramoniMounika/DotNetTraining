@@ -1,0 +1,23 @@
+What are Collections in C#?
+In C#, a Collection is a data structure used to store, manage, and manipulate a group of objects efficiently. Collections provide a way to organize and process data dynamically, unlike arrays, which have a fixed size.
+
+✅ Key Characteristics:
+Dynamic Size: Collections can grow or shrink as needed.
+Flexibility: They allow storing objects of different types.
+Convenience: Built-in methods for adding, removing, and searching elements.
+Performance Optimization: Suitable for different scenarios (e.g., list, queue, stack, etc.).
+
+Generics in C# allow you to define classes, interfaces, and methods with a placeholder for the data type. This enables you to create type-safe and reusable code without committing to a specific data type until the class or method is instantiated.
+
+✅ Key Characteristics:
+Type Safety: Compile-time type checking prevents runtime errors.
+Reusability: Allows the creation of a single class or method that works with any data type.
+Performance Optimization: Reduces the need for type conversions and boxing/unboxing.
+
+
+Non-generic collections are part of the System.Collections namespace and store elements as objects (object type), which means that type-checking happens at runtime, leading to potential performance and type safety issues.
+
+⚡️ Key Characteristics:
+No Type Safety: Type mismatch errors occur at runtime.
+Boxing and Unboxing Overhead: Value types are boxed when added and unboxed when retrieved.
+Flexibility: Can store different types of objects in the same collection.

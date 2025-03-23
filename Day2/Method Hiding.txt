@@ -13,6 +13,7 @@ class DerivedClass : BaseClass
     // Method hiding using 'new' keyword
     public new void ShowMessage()
     {
+
         Console.WriteLine("Message from Derived Class");
     }
 }
